@@ -1,0 +1,16 @@
+{
+    "name": "Product Owner",
+    "context": "During your first 3 months working with the medium.com dev team you participate in many Sprint Planning and Demo calls with your Product Owner and get an opportunity to estimate timelines and surface risks.",
+    "tasks": [
+        "Communicate why the features requested will take 4 instead of 2 weeks. GO FOR IT!",
+        "Communicate why it's important to take 1 week to write tests before implementing features. GO FOR IT!",
+        "Communicate why you can't deliver the requested backend and frontend implementation of a feature in 1 week. GO FOR IT!",
+        "Ask for clarity on the highly unreasonable and unclear UI/UX request made. GO FOR IT!",
+        "Ask for clarity on why the PO wants a specific UI/UX design. GO FOR IT!",
+        "Respond to why the feature has bugs. GO FOR IT!",
+        "Explain why you failed to meet the sprint timeline for delivering features. GO FOR IT!",
+        "Explain why you opted for a different UI/UX design from the one requested. GO FOR IT!",
+        "Explain why you opted to prioritise a specific feature over another. GO FOR IT!",
+        "Explain why you went ahead to implement a feature without properly understanding the request. GO FOR IT!"
+    ]
+}
