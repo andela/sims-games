@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb", "react"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "document": true,
+    "M": true,
+    "window": true,
+    "localStorage": true
+  },
+  "rules": {
+    "max-len": [
+      1,
+      80,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "indent": ["error", 2],
+    "max-depth": ["error", 5],
+    "jsx-a11y/label-has-for": 0
+  }
+}
