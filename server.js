@@ -22,11 +22,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('./client/build/app.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'app.js'));
+app.get('/build/index.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.js'));
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client','build')));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
