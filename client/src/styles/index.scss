@@ -78,3 +78,132 @@ body,
 .gameCardCircle{
   color: #FFFFFF;
 }
+
+/******************* GAME PAGE STYLES *******************/
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+
+.content-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  color: white;
+  font-family: 'Ropa Sans';
+
+  .button {
+    margin-top: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #656565;
+    width: 150px;
+    height: 45px;
+    padding: 5px 5px;
+    border-radius: 50px;
+
+    &.start {
+      margin-right: 5%;
+    }
+
+    &:hover {
+      background-color: #454545;
+      cursor: pointer;
+    }
+  }
+
+  .scenario-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .scenario-box-tag-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 80%;
+
+      .scenario-tag {
+        display: flex;
+        justify-content: center;
+        background-color: #454545;
+        width: 150px;
+        padding: 5px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .scenario-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #454545;
+        min-height: 200px;
+        height: auto;
+        padding: 20px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        width: 100%;
+        font-style: italic;
+        box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: .5);
+        position: relative;
+
+        .scenario-border {
+          border: 2px solid white;
+          position: absolute;
+          width: 98%;
+          height: 90%;
+          border-top-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .begin-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .question-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .question-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #353535;
+      height: 200px;
+      width: 100%;
+      margin: 0px 20%;
+      margin-top: 50px;
+      padding: 20px;
+    }
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+
+}
