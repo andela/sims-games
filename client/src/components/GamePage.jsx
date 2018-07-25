@@ -114,12 +114,12 @@ class GamePage extends React.Component {
       startText: "START",
       nextQuestion: false,
       buttonDisabled: false,
-      gameCompleted: false
+      gameCompleted: false,
+      soundAlarm: false
     }
     this.handleBegin = this.handleBegin.bind(this);
     this.randomQuestion = this.randomQuestion.bind(this);
-    this.startAlarm = this.startAlarm.bind(this);
-    this.stopAlarm = this.stopAlarm.bind(this);
+    this.soundAlarm = this.soundAlarm.bind(this);
   }
 
   componentDidMount() {
@@ -129,10 +129,10 @@ class GamePage extends React.Component {
   }
 
   handleBegin = () => {
-    this.stopAlarm(); // just in case
     const shuffleArray = this.state.data.tasks.sort(() => 0.5 - Math.random());
     this.setState({
       gameStarted: true,
+      soundAlarm: false,
       shuffleArray
     }, () => {
       this.randomQuestion();
@@ -148,13 +148,13 @@ class GamePage extends React.Component {
   }
 
   handleRestart = () => {
-    this.stopAlarm();
     this.setState({
       gameStarted: false,
       currentQuestion: '',
       startText: "START",
       nextQuestion: false,
       buttonDisabled: false,
+      soundAlarm: false,
     });
   }
 
@@ -163,19 +163,19 @@ class GamePage extends React.Component {
       buttonDisabled: true,
     }, () => {
       if (this.state.nextQuestion) {
-        this.stopAlarm();
         this.randomQuestion();
         this.setState({
           startText: "START",
           nextQuestion: false,
           buttonDisabled: false,
+          soundAlarm: false,
         });
       }
       else if (this.state.gameCompleted) {
         this.props.history.push('/');
       }
       else {
-        let counter = 60;
+        let counter = 3;
 
         this.setState({
           startText: counter,
@@ -186,20 +186,22 @@ class GamePage extends React.Component {
           if (counter === 0 || !this.state.gameStarted) {
             if (this.state.gameStarted) {
               if (counter === 0) {
-                this.startAlarm();
+                // this.startAlarm();
               }
               const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
               this.setState({
                 startText: text,
                 nextQuestion: this.state.shuffleArray.length > 0,
                 buttonDisabled: false,
-                gameCompleted: this.state.shuffleArray.length === 0
+                gameCompleted: this.state.shuffleArray.length === 0,
+                soundAlarm: true
               });
             }
             clearInterval(timer);
           } else {
             this.setState({
               startText: counter,
+              soundAlarm: false
             });
           }
         }, 1000);
@@ -208,17 +210,18 @@ class GamePage extends React.Component {
 
   }
 
-  startAlarm() {
-    alarm.play();
-  }
-
-  stopAlarm() {
-    alarm.pause();
-    alarm.currentTime = 0;
+  soundAlarm(sound) {
+    if (sound) {
+      alarm.play();
+    } else {
+      alarm.pause();
+      alarm.currentTime = 0;
+    }
   }
 
   render() {
     const buttonDisabled = this.state.buttonDisabled ? 'disable' : '';
+    this.soundAlarm(this.state.soundAlarm);
     return (
       <div className="content">
         <Header title={(this.state.data) ? this.state.data.name : ""} />
