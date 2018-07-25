@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const config = require('./webpack.dev.config');
+let config = require('./webpack.dev.config');
 
 const env = process.env.NODE_ENV || 'development';
 const port = parseInt(process.env.PORT, 10) || 8000;

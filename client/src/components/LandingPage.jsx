@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import logo from "../assets/spinner.andela.png";
+import Footer from './Footer';
+import Header from './Header';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -14,19 +15,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <div className="app-header">
-          <a className="brand">
-            <img
-              src={logo}
-              alt="app-logo"
-              width="35"
-              align="middle"
-              className="app-logo"
-              role="presentation"
-            />{" "}
-            SIMS
-          </a>
-        </div>
+        <Header />
         <div className="app-body container-fluid pt-5">
           <div className="mb-5">
             <h2>SIMULATIONS SKILL SESSION</h2>
@@ -128,6 +117,7 @@ class LandingPage extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

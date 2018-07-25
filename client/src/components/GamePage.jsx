@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import logo from "../assets/spinner.andela.png";
+import Footer from './Footer';
+import Header from './Header';
 import { getJSONData } from "../actions/data";
 
-class LandingPage extends React.Component {
+class GamePage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,6 +18,7 @@ class LandingPage extends React.Component {
       startText: "START",
       nextQuestion: false,
       buttonDisabled: false,
+      gameCompleted: false
     }
     this.handleBegin = this.handleBegin.bind(this);
     this.randomQuestion = this.randomQuestion.bind(this);
@@ -67,8 +69,12 @@ class LandingPage extends React.Component {
           nextQuestion: false,
           buttonDisabled: false,
         });
-      } else {
-        let counter = 15;
+      }
+      else if (this.state.gameCompleted) {
+        this.props.history.push('/');
+      }
+      else {
+        let counter = 2;
 
         this.setState({
           startText: counter,
@@ -78,10 +84,12 @@ class LandingPage extends React.Component {
           counter--;
           if (counter === 0 || !this.state.gameStarted) {
             if (this.state.gameStarted) {
+              const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
               this.setState({
-                startText: "NEXT",
-                nextQuestion: true,
+                startText: text,
+                nextQuestion: this.state.shuffleArray.length > 0,
                 buttonDisabled: false,
+                gameCompleted: this.state.shuffleArray.length === 0
               });
             }
             clearInterval(timer);
@@ -99,20 +107,8 @@ class LandingPage extends React.Component {
   render() {
     const buttonDisabled = this.state.buttonDisabled ? 'disable' : '';
     return (
-      <div>
-        <div className="app-header">
-          <a className="brand">
-            <img
-              src={logo}
-              alt="app-logo"
-              width="35"
-              align="middle"
-              className="app-logo"
-              role="presentation"
-            />{" "}
-            SIMS
-          </a>
-        </div>
+      <div className="content">
+        <Header title={(this.state.data) ? this.state.data.name : ""} />
 
         {/* BODY */}
         {this.state.data !== null && <div className="content-body">
@@ -131,9 +127,9 @@ class LandingPage extends React.Component {
           {this.state.gameStarted && <div className="container">
             <div className="question-container">
               <div className="question-box">
-               <div className="question-inner">
-                <div className="question-text">{this.state.currentQuestion}?</div>
-               </div>
+                <div className="question-inner">
+                  <div className="question-text">{this.state.currentQuestion}?</div>
+                </div>
               </div>
             </div>
             <div className="button-container">
@@ -142,11 +138,13 @@ class LandingPage extends React.Component {
             </div>
           </div>}
         </div>}
+        <Footer />
       </div>
+
     );
   }
 };
 
-LandingPage.propTypes = {};
+GamePage.propTypes = {};
 
-export default LandingPage;
+export default GamePage;
