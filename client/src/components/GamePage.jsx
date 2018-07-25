@@ -3,6 +3,9 @@ import React from "react";
 import Footer from './Footer';
 import Header from './Header';
 import { getJSONData } from "../actions/data";
+import TimeUp from '../assets/time-up.mp3'; 
+const TimeUpAudio = new Audio("../assets/time-up.mp3");
+
 
 class GamePage extends React.Component {
   constructor(props) {
@@ -22,6 +25,7 @@ class GamePage extends React.Component {
     }
     this.handleBegin = this.handleBegin.bind(this);
     this.randomQuestion = this.randomQuestion.bind(this);
+    this.sound = new Audio(TimeUp);
   }
 
   componentDidMount() {
@@ -63,6 +67,8 @@ class GamePage extends React.Component {
       buttonDisabled: true,
     }, () => {
       if (this.state.nextQuestion) {
+        this.sound.pause();
+        this.sound.currentTime = 0;
         this.randomQuestion();
         this.setState({
           startText: "START",
@@ -84,7 +90,9 @@ class GamePage extends React.Component {
           counter--;
           if (counter === 0 || !this.state.gameStarted) {
             if (this.state.gameStarted) {
+              this.sound.play();
               const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
+              
               this.setState({
                 startText: text,
                 nextQuestion: this.state.shuffleArray.length > 0,
