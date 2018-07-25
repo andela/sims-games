@@ -1,5 +1,10 @@
-import { combineReducers } from 'redux';
+import {
+  combineReducers
+} from 'redux';
+import dataReducer from './dataReducer';
 
-const reducers = combineReducers({});
+const reducers = combineReducers({
+  fileData: dataReducer
+});
 
 export default reducers;

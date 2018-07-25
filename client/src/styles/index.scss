@@ -1,24 +1,33 @@
-@import '~bootstrap/scss/bootstrap';
-@import '~font-awesome/css/font-awesome.css';
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
 
 html,
 body,
 #root {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto';
+  font-family: "Roboto", sans-serif;
   height: 100%;
-  background: #E5E5E5;
+  background: #e5e5e5;
 }
 
 .app-header {
-  background: #3359DF;
+  background: #3359df;
   padding: 0 20px;
   width: 100%;
-  padding: .5rem 1rem;
-  color:#FFFFFF;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
 }
-
+.app-body h2 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  color: #454545;
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -35,15 +44,16 @@ body,
   -webkit-animation: spin infinite 40s linear;
   animation: spin infinite 40s linear;
   display: inline-block;
-  vertical-align: middle
+  vertical-align: middle;
 }
 
-.app-header .brand, .app-header a{
+.app-header .brand,
+.app-header a {
   display: inline-block;
   font-size: 1.25rem;
   height: 30px;
   white-space: nowrap;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .app-body {
@@ -51,28 +61,33 @@ body,
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-.gameCard {    background-color: #FFFFFF;
-  background-image: linear-gradient(to right bottom, #454545 50%, #FFFFFF 50%);
-  background-image: -webkit-linear-gradient(to right bottom, #454545 50%, #FFFFFF 50%);
-  // height: 250px;
-  // width: 200px;
+.gameCard {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right bottom, #454545 50%, #ffffff 50%);
+  background-image: -webkit-linear-gradient(
+    to right bottom,
+    #454545 50%,
+    #ffffff 50%
+  );
   color: #fff;
-  border-radius: 5px;
- /* padding: 2px 20px; */
- font-size: 120%;
- margin: 10px;
+  border-radius: 20px;
+  margin: 10px;
+  height: 350px;
+  width: 250px;
 }
 
-.gameCard .gameCardText {border-radius: 10px;
+.gameCard .gameCardText {
+  border-radius: 10px;
   background: #454545;
-  padding: 2px;
-  margin: 13px;
   font-weight: bold;
   text-align: center;
+  display: inline-block;
+  padding: 5px 20px;
 }
-.gameCardIcon{
+.gameCardIcon {
   color: #454545;
 }
 .gameCardCircle{
@@ -206,4 +221,23 @@ body,
 
 @media only screen and (max-width: 900px) {
 
+.gameCardCircle {
+  color: #ffffff;
+}
+.inner-circle-icon {
+  color: #454545;
+  font-size: 1.8em;
+  margin-top: 2px;
+}
+.outer-circle-icon.fa-stack-2x {
+  font-size: 1.9em;
+}
+.fa-stack-open-border {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: white;
+  border: 7px solid #454545;
+  box-shadow: 0 0 0 5px white;
 }
