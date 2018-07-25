@@ -1,15 +1,20 @@
 import React from 'react';
 import { Router } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
-import '../styles/index.scss';
+import 'bootstrap';
+import "../styles/index.scss";
+import LandingPage from "./LandingPage";
+import GamePage from "./GamePage";
+
+import createBrowserHistory from 'history/createBrowserHistory';
+const history = createBrowserHistory();
 
 const App = () => (
-  <Router>
-    <div className="wrapper">
+  <Router history={history}>
       <Switch>
-        
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/play/:id" component={GamePage} />
       </Switch>
-    </div>
   </Router>
 );
 

@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const config = require('./webpack.dev.config');
+let config = require('./webpack.dev.config');
 
 const env = process.env.NODE_ENV || 'development';
 const port = parseInt(process.env.PORT, 10) || 8000;
@@ -22,13 +22,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('./client/build/app.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'app.js'));
+app.get('/build/index.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.js'));
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client','public')));
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });
 

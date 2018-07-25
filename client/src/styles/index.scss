@@ -1,0 +1,344 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+  background: #e5e5e5;
+}
+
+.app-header {
+  background: #3359df;
+  padding: 0 20px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  display: flex;
+}
+.app-body h2 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  color: #454545;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-header .app-logo {
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+  -webkit-animation: spin infinite 40s linear;
+  animation: spin infinite 40s linear;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.app-header .brand,
+.app-header a {
+  display: inline-block;
+  font-size: 1.25rem;
+  height: 30px;
+  white-space: nowrap;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.app-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.gameCard {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right bottom, #454545 50%, #ffffff 50%);
+  background-image: -webkit-linear-gradient(
+    to right bottom,
+    #454545 50%,
+    #ffffff 50%
+  );
+  color: #fff;
+  border-radius: 20px;
+  margin: 10px;
+  height: 350px;
+  width: 250px;
+}
+
+.gameCard .gameCardText {
+  border-radius: 10px;
+  background: #454545;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 20px;
+}
+.gameCardIcon {
+  color: #454545;
+}
+.gameCardCircle{
+  color: #FFFFFF;
+}
+.gameCardCircle {
+  color: #ffffff;
+}
+.inner-circle-icon {
+  color: #454545;
+  font-size: 1.8em;
+  margin-top: 2px;
+}
+.outer-circle-icon.fa-stack-2x {
+  font-size: 1.9em;
+}
+.fa-stack-open-border {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: white;
+  border: 7px solid #454545;
+  box-shadow: 0 0 0 5px white;
+}
+/******************* GAME PAGE STYLES *******************/
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Francois+One|Merienda|Nunito|Source+Sans+Pro|Sunflower:300');
+
+.content {
+  height: 100%;
+}
+
+
+.app-header span {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  .b {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.content-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  color: #e5e5e5;
+  font-family: 'Merienda';
+  text-align: center;
+  height: 80%;
+
+  .container {
+    width: 100%;
+  }
+
+  .button {
+    outline: none;
+    text-decoration: none;
+    margin-top: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #454545;
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    padding: 5px 5px;
+    border-radius: 50px;
+    color: white !important;
+    box-shadow: 0px 0px 3px rgba($color: #000000, $alpha: .2);
+
+    &.start {
+      margin-right: 5%;
+    }
+
+    &:hover {
+      background-color: #fff;
+      border: 3px solid #454545;
+      color: #454545 !important;
+      cursor: pointer;
+
+    }
+  }
+
+  .scenario-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .scenario-box-tag-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 80%;
+
+      .scenario-tag {
+        display: flex;
+        justify-content: center;
+        background-color: #353535;
+        width: 150px;
+        padding: 5px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 20px;
+      }
+
+      .scenario-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #353535;
+        min-height: 200px;
+        height: auto;
+        padding: 7%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        width: 100%;
+        box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: .2);
+        position: relative;
+        font-size: 20px;
+
+        .scenario-border {
+          border: 2px solid white;
+          position: absolute;
+          width: 98%;
+          height: 90%;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  .begin-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .question-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .question-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #353535;
+      height: 300px;
+      width: 100%;
+      margin: 0px 20%;
+      margin-top: 50px;
+      border-radius: 5px;
+      max-width: 700px;
+      font-size: 20px;
+      box-shadow: 1px 1px 2px 3px rgba($color: #000000, $alpha: .1);
+      position: relative;
+
+      .question-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 98%;
+        height: 95%;
+        border-radius: 3px;
+        background-color: #fff;
+        z-index: 0;
+        animation: scroll-open 3s;
+
+        .question-text {
+          margin: 7%;
+          z-index: 2;
+          color: black;
+          text-shadow: 1px 1px 2px #fff;
+          animation: scroll-open-text 3s;
+          font-family: 'Francois One';
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.disable {
+  cursor: no-drop;
+}
+
+
+@keyframes scroll-open {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 95%;
+  }
+}
+
+
+.footer {
+  background-color: #353535;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: #e5e5e5;
+  }
+}
+
+
+@keyframes scroll-open-text {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .scenario-box-tag-container {
+    max-width: 1000px;
+  }
+}
