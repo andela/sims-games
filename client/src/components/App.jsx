@@ -12,6 +12,7 @@ const App = () => (
   <Router history={history}>
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/play" component={LandingPage} />
       </Switch>
   </Router>
 );
