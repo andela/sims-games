@@ -74,7 +74,7 @@ class GamePage extends React.Component {
         this.props.history.push('/');
       }
       else {
-        let counter = 2;
+        let counter = 60;
 
         this.setState({
           startText: counter,
