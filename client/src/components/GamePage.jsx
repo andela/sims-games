@@ -4,8 +4,6 @@ import Footer from './Footer';
 import Header from './Header';
 import { getJSONData } from "../actions/data";
 import TimeUp from '../assets/time-up.mp3'; 
-const TimeUpAudio = new Audio("../assets/time-up.mp3");
-
 
 class GamePage extends React.Component {
   constructor(props) {
@@ -53,6 +51,7 @@ class GamePage extends React.Component {
   }
 
   handleRestart = () => {
+    this.stopAlarm();
     this.setState({
       gameStarted: false,
       currentQuestion: '',
@@ -110,6 +109,15 @@ class GamePage extends React.Component {
       }
     });
 
+  }
+
+  startAlarm() {
+    alarm.play();
+  }
+
+  stopAlarm() {
+    alarm.pause();
+    alarm.currentTime = 0;
   }
 
   render() {
