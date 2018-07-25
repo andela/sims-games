@@ -93,9 +93,28 @@ body,
 .gameCardCircle{
   color: #FFFFFF;
 }
-
+.gameCardCircle {
+  color: #ffffff;
+}
+.inner-circle-icon {
+  color: #454545;
+  font-size: 1.8em;
+  margin-top: 2px;
+}
+.outer-circle-icon.fa-stack-2x {
+  font-size: 1.9em;
+}
+.fa-stack-open-border {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: white;
+  border: 7px solid #454545;
+  box-shadow: 0 0 0 5px white;
+}
 /******************* GAME PAGE STYLES *******************/
-@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Francois+One|Merienda|Nunito|Source+Sans+Pro|Sunflower:300');
 
 .content-body {
   display: flex;
@@ -103,27 +122,40 @@ body,
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  color: white;
-  font-family: 'Ropa Sans';
+  color: #e5e5e5;
+  font-family: 'Merienda';
+  text-align: center;
+
+  .container {
+    width: 100%;
+  }
 
   .button {
+    outline: none;
+    text-decoration: none;
     margin-top: 50px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #656565;
-    width: 150px;
-    height: 45px;
+    background-color: #454545;
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
     padding: 5px 5px;
     border-radius: 50px;
+    color: white !important;
+    box-shadow: 0px 0px 3px rgba($color: #000000, $alpha: .2);
 
     &.start {
       margin-right: 5%;
     }
 
     &:hover {
-      background-color: #454545;
+      background-color: #fff;
+      border: 3px solid #454545;
+      color: #454545 !important;
       cursor: pointer;
+
     }
   }
 
@@ -145,35 +177,36 @@ body,
       .scenario-tag {
         display: flex;
         justify-content: center;
-        background-color: #454545;
+        background-color: #353535;
         width: 150px;
         padding: 5px 10px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        font-size: 20px;
       }
 
       .scenario-box {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #454545;
+        background-color: #353535;
         min-height: 200px;
         height: auto;
-        padding: 20px;
+        padding: 7%;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
         width: 100%;
-        font-style: italic;
-        box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: .5);
+        box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: .2);
         position: relative;
+        font-size: 20px;
 
         .scenario-border {
           border: 2px solid white;
           position: absolute;
           width: 98%;
           height: 90%;
-          border-top-radius: 3px;
+          border-radius: 3px;
         }
       }
     }
@@ -198,11 +231,38 @@ body,
       align-items: center;
       justify-content: center;
       background-color: #353535;
-      height: 200px;
+      height: 300px;
       width: 100%;
       margin: 0px 20%;
       margin-top: 50px;
-      padding: 20px;
+      border-radius: 5px;
+      max-width: 700px;
+      font-size: 20px;
+      box-shadow: 1px 1px 2px 3px rgba($color: #000000, $alpha: .1);
+      position: relative;
+
+      .question-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 98%;
+        height: 95%;
+        border-radius: 3px;
+        background-color: #fff;
+        z-index: 0;
+        animation: scroll-open 3s;
+
+        .question-text {
+          margin: 7%;
+          z-index: 2;
+          color: black;
+          text-shadow: 1px 1px 2px #fff;
+          animation: scroll-open-text 3s;
+          font-family: 'Francois One';
+          overflow: hidden;
+        }
+      }
     }
   }
 
@@ -214,30 +274,36 @@ body,
   }
 }
 
-
 .hide {
   display: none;
 }
 
-@media only screen and (max-width: 900px) {
+.disable {
+  cursor: no-drop;
+}
 
-.gameCardCircle {
-  color: #ffffff;
+
+@keyframes scroll-open {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 95%;
+  }
 }
-.inner-circle-icon {
-  color: #454545;
-  font-size: 1.8em;
-  margin-top: 2px;
+
+
+@keyframes scroll-open-text {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 30%;
+  }
 }
-.outer-circle-icon.fa-stack-2x {
-  font-size: 1.9em;
-}
-.fa-stack-open-border {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background-color: white;
-  border: 7px solid #454545;
-  box-shadow: 0 0 0 5px white;
+
+@media only screen and (min-width: 1200px) {
+  .scenario-box-tag-container {
+    max-width: 1000px;
+  }
 }

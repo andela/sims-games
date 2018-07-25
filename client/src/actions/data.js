@@ -1,7 +1,7 @@
 // Get the files by the id set on the url
-export const getJSONData = (valueId) => {
+export const getJSONData = (valueId, fn) => {
   let dataFileUrl = '';
-  switch (valueId) {
+  switch (+valueId) {
     case 1:
       dataFileUrl = "/data/kickoff-call.json";
       break;
@@ -21,8 +21,5 @@ export const getJSONData = (valueId) => {
       dataFileUrl = "/data/technical-team-lead.json";
       break;
   };
-  $.getJSON(dataFileUrl, (json) => {
-    console.log(json);
-    return json;
-  });
+  $.getJSON(dataFileUrl, fn);
 };
