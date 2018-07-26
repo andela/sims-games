@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import Footer from './Footer';
 import Header from './Header';
+import ttl from "../assets/technical-team-lead.svg";
+import owner from "../assets/owner.svg";
+import chief from "../assets/chief.svg";
+import performing from "../assets/team-performing.svg";
+import storming from "../assets/team-storming.svg";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -16,7 +21,7 @@ class LandingPage extends Component {
     return (
       <div>
         <Header />
-        <div className="app-body container-fluid pt-5">
+        <div className="app-body landing-page container-fluid pt-5">
           <div className="mb-5">
             <h2>SIMULATIONS SKILL SESSION</h2>
           </div>
@@ -45,7 +50,7 @@ class LandingPage extends Component {
               >
                 <div className="card-body mt-5">
                   <div className="fa-stack-open-border d-flex justify-content-center align-items-center">
-                    <i className="fa fa-user fa-4x gameCardIcon" />
+                   <img src={chief} alt="chief" />
                   </div>
                 </div>
                 <div className="p-3">
@@ -60,7 +65,7 @@ class LandingPage extends Component {
               >
                 <div className="card-body mt-5">
                   <div className="fa-stack-open-border d-flex justify-content-center align-items-center">
-                    <i className="fa fa-user fa-4x gameCardIcon" />
+                    <img src={owner} alt="owner" />
                   </div>
                 </div>
                 <div className="p-3">
@@ -77,7 +82,7 @@ class LandingPage extends Component {
               >
                 <div className="card-body mt-5">
                   <div className="fa-stack-open-border d-flex justify-content-center align-items-center">
-                    <i className="fa fa-user fa-4x gameCardIcon" />
+                    <img src={ttl} alt="ttl" />
                   </div>
                 </div>
                 <div className="p-3">
@@ -92,7 +97,7 @@ class LandingPage extends Component {
               >
                 <div className="card-body mt-5">
                   <div className="fa-stack-open-border d-flex justify-content-center align-items-center">
-                    <i className="fa fa-users fa-4x gameCardIcon" />
+                    <img src={storming} alt="storming" />
                   </div>
                 </div>
                 <div className="p-3">
@@ -107,7 +112,7 @@ class LandingPage extends Component {
               >
                 <div className="card-body mt-5">
                   <div className="fa-stack-open-border d-flex justify-content-center align-items-center">
-                    <i className="fa fa-users fa-4x gameCardIcon" />
+                   <img src={performing} alt="performing" />
                   </div>
                 </div>
                 <div className="p-3">
