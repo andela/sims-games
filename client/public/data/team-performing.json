@@ -2,15 +2,15 @@
     "name": "Team Performing",
     "context": "It is your first month of working remotely with the medium.com dev team. You are faced with numerous opportunities to interact with your remote non-Andelan and local Andelan team mates. This pushes you into numerous scenarios where you have to give and receive feedback.",
     "tasks": [
-        "Give feedback to a local dev on pulling their weight. GO FOR IT!",
-        "Respond to feedback given by a local dev on pulling your weight. GO FOR IT!",
-        "Give feedback to a remote dev on their rubbish pull requests. GO FOR IT!",
-        "Respond to feedback from a remote dev on your rubbish pull requests. GO FOR IT!",
-        "Give feedback to the TTL on unclear communication and its impact. GO FOR IT!",
-        "Respond to feedback from the TTL on unclear communication and its impact. GO FOR IT!",
-        "Give feedback to the CTO on innapropriate comments to certain members of the team. GO FOR IT!",
-        "Respond to feedback from the the CTO on the innapropriate comments to certain members of the team. GO FOR IT!",
-        "Give feedback to a local dev on being selfish and not supporting other team members. GO FOR IT!",
-        "Respond to feedback from a local dev on being selfish and not supporting other team members. GO FOR IT!"
+        { "number": "1", "text": "Give feedback to a local dev on pulling their weight. GO FOR IT!" },
+        { "number": "2", "text": "Respond to feedback given by a local dev on pulling your weight. GO FOR IT!" },
+        { "number": "3", "text": "Give feedback to a remote dev on their rubbish pull requests. GO FOR IT!" },
+        { "number": "4", "text": "Respond to feedback from a remote dev on your rubbish pull requests. GO FOR IT!" },
+        { "number": "5", "text": "Give feedback to the TTL on unclear communication and its impact. GO FOR IT!" },
+        { "number": "6", "text": "Respond to feedback from the TTL on unclear communication and its impact. GO FOR IT!" },
+        { "number": "7", "text": "Give feedback to the CTO on innapropriate comments to certain members of the team. GO FOR IT!" },
+        { "number": "8", "text": "Respond to feedback from the the CTO on the innapropriate comments to certain members of the team. GO FOR IT!" },
+        { "number": "9", "text": "Give feedback to a local dev on being selfish and not supporting other team members. GO FOR IT!" },
+        { "number": "10", "text": "Respond to feedback from a local dev on being selfish and not supporting other team members. GO FOR IT!" }
     ]
 }
