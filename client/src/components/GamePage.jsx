@@ -12,7 +12,7 @@ const alarm = new Audio("data:audio/mp3;base64,//uwYAAP9IRNU4CvevCNLwbADMZuElE1Z
   "gQP416Uy8iHejh6ESXN8oGeRWRF2Ts9hwJMhDKabkyPIM7IuFQf6XTjJSVneGGLGGIB8BGwixCDIKgdCrUoSMHwKEJGxI" +
   "eq1IqIavjHIrTIU8an/kmTkVnkiZ3/iWdWLt2rM7//+bsDpDHrPuA8b2dscmS/vS+/83kiQ49NazuBMn2JQQ3gDeUJh8px" +
   "pQcRdzCK5OaFn7GsgfuaQLGHrjw6cJlKv2UhcYTpB+ekFlIPf5mEDU47YTom0QfuNhDD9jO9npmIp5ZSiGXbR3u7ZB7aaWC" +
-  "Gpx2y3TZD3vZZB7szN6B6yE33pMxR+x4lA/YiU2i9IGpxkPEkzkL19JlIPdlKtkD9IZe49mKJ0h2KQJ7EPfu4QdNo8RhM4N" + 
+  "Gpx2y3TZD3vZZB7szN6B6yE33pMxR+x4lA/YiU2i9IGpxkPEkzkL19JlIPdlKtkD9IZe49mKJ0h2KQJ7EPfu4QdNo8RhM4N" +
   "6MrucPwFGjfvjOs1TgSNCLriHGxuuoqOCTljU8SrcxsErIcZlCwJ1XK+l2hyZmsv8iup8SQ5UXmFblyw1Sp0JntmLYTlHXj0" +
   "lqV6CLuIoHGrG6fL6SVxuhlcD85//cvSjssdCW95////8EQdKJN9axlOzUchTA4apZibqb//+OTl6nv87+vrzsD6lnOEhwn1" +
   "GPLisQBwIM4RwSi0Say6PsQammgXEE9Tc6DGnsQsnBmZr7HIGUeUh2u9mtQJ7FNpC0NsqWyLpCMIIdcmH8krlk92zFWo9JBE" +
@@ -99,118 +99,178 @@ const alarm = new Audio("data:audio/mp3;base64,//uwYAAP9IRNU4CvevCNLwbADMZuElE1Z
   "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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//uyYAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTguMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//uyYAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTguMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//uyYAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTguMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//uwYAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTguMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/+7JgAA/wAABpAAAACAAADSAAAAEAAAGkAAAAIAAANIAAAARMQU1FMy45OC4yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=");
 
-
 class GamePage extends React.Component {
   constructor(props) {
     super(props);
 
+    // Gets :id params in the current route
     const { id } = this.props.match.params;
+
+    // State.
     this.state = {
       gameStarted: false,
       id,
       shuffleArray: [],
       data: null,
       currentQuestion: '',
-      startText: "START",
-      nextQuestion: false,
-      buttonDisabled: false,
+      buttonText: "START",
+      buttonIsNext: false,
+      timerCounting: false,
       gameCompleted: false,
-      soundAlarm: false
+      soundAlarm: false,
+      questionNumber: 0,
+      // Animation states
+      beginAnimate: false,
+      nextAnimate: false,
+      restartAnimate: false,
     }
-    this.handleBegin = this.handleBegin.bind(this);
-    this.randomQuestion = this.randomQuestion.bind(this);
-    this.soundAlarm = this.soundAlarm.bind(this);
   }
 
   componentDidMount() {
+    // Gets the json data from data files
     getJSONData(this.state.id, json => {
       this.setState({ data: json });
     });
   }
 
+  // Gets called when "BEGIN" button is clicked.
   handleBegin = () => {
+    // Shuffle array.
     const shuffleArray = this.state.data.tasks.sort(() => 0.5 - Math.random());
+
+    // Setting necessary states for when begin button is clicked
     this.setState({
       gameStarted: true,
       soundAlarm: false,
-      shuffleArray
+      beginAnimate: true,
+      nextAnimate: true,
+      questionNumber: 1,
+      shuffleArray,
     }, () => {
+      // Pick a random question
       this.randomQuestion();
+
+      // Set animation state to false after 2 sec.
+      setTimeout(() => {
+        this.setState({ beginAnimate: false, nextAnimate: false });
+      }, 1000);
     });
   }
 
+  // Pick a question from shuffleArray anhd pops it from the array
   randomQuestion = () => {
     const tempArr = this.state.shuffleArray;
+
+    // Question gets popped from the array.
     const currentQuestion = tempArr.pop();
+
+    // Setting the new current question.
     this.setState({
       currentQuestion
     });
   }
 
+  // Gets called when "RESTART" button is clicked.
   handleRestart = () => {
     this.setState({
       gameStarted: false,
       currentQuestion: '',
-      startText: "START",
-      nextQuestion: false,
-      buttonDisabled: false,
+      buttonText: "START",
+      buttonIsNext: false,
+      timerCounting: false,
       soundAlarm: false,
+      restartAnimate: true,
+      questionNumber: 0,
+    }, () => {
+      // Set animation state to false after 2 sec.
+      setTimeout(() => {
+        this.setState({ restartAnimate: false });
+      }, 1000);
     });
   }
 
+  // Gets called when "START" button is clicked.
   handleStart = (e) => {
-    this.setState({
-      buttonDisabled: true,
-    }, () => {
-      if (this.state.nextQuestion) {
-        this.randomQuestion();
+    console.log('Baam!!!!')
+
+      if (this.state.timerCounting) {
         this.setState({
-          startText: "START",
-          nextQuestion: false,
-          buttonDisabled: false,
+          buttonText: "START",
+          buttonIsNext: false,
+          timerCounting: false,
           soundAlarm: false,
         });
-      }
-      else if (this.state.gameCompleted) {
-        this.props.history.push('/');
-      }
-      else {
-        let counter = 60;
+        return;
+      };
 
+      // After `timerCounting` has been set.
+      // Check if the button has `NEXT` on it.
+      if (this.state.buttonIsNext) {
+        // Choose a new question.
+        this.randomQuestion();
         this.setState({
-          startText: counter,
+          buttonText: "START",
+          buttonIsNext: false,
+          timerCounting: false,
+          soundAlarm: false,
         });
 
+      // The button doesn't have `NEXT` on it.
+      // However, check if the array has been exhausted, i.e. `gameCompleted`.
+      } else if (this.state.gameCompleted) {
+        // Redirect to landing page.
+        this.props.history.push('/');
+
+      // The button doesn't have `NEXT` on it. It has a `START` on it.
+      } else {
+        // The timer count.
+        let counter = 10;
+
+        // Set the button text to the current timer count.
+        this.setState({
+          buttonText: counter,
+          questionNumber: this.state.questionNumber + 1,
+          nextAnimate: true,
+          timerCounting: true,
+        }, () => {
+          // Set animation state to false after 2 sec.
+          setTimeout(() => {
+            this.setState({ nextAnimate: false });
+          }, 1000);
+        });
+
+        // The timer calls the callback every 1 sec.
         let timer = setInterval(() => {
+          // Decrement counter.
           counter--;
           if (counter === 0 || !this.state.gameStarted) {
             if (this.state.gameStarted) {
-              if (counter === 0) {
-                // this.startAlarm();
-              }
               const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
               this.setState({
-                startText: text,
-                nextQuestion: this.state.shuffleArray.length > 0,
-                buttonDisabled: false,
+                buttonText: text,
+                buttonIsNext: this.state.shuffleArray.length > 0,
                 gameCompleted: this.state.shuffleArray.length === 0,
+                timerCounting: false,
                 soundAlarm: true
               });
             }
+            // Stop the counter.
             clearInterval(timer);
-          } else {
+          } else if (this.state.timerCounting) {
             this.setState({
-              startText: counter,
+              buttonText: counter,
               soundAlarm: false
             });
+          } else {
+            // Stop the counter.
+            clearInterval(timer);
           }
         }, 1000);
       }
-    });
-
   }
 
-  soundAlarm(sound) {
+  // Sounds the alarm.
+  soundAlarm = (sound) => {
     if (sound) {
       alarm.play();
     } else {
@@ -220,8 +280,15 @@ class GamePage extends React.Component {
   }
 
   render() {
-    const buttonDisabled = this.state.buttonDisabled ? 'disable' : '';
+    // Animations
+    const scenarioBoxAnimate = this.state.beginAnimate ? 'animate move-up' :  '';
+    const scenarioBoxAnimateDown = this.state.restartAnimate ? 'animate move-down' :  '';
+    const questionInnerBoxAnimate = this.state.nextAnimate ? 'animate scroll-open' :  '';
+    const questionTextAnimate = this.state.nextAnimate ? 'animate scroll-open-text' :  '';
+
+    // Alarm state
     this.soundAlarm(this.state.soundAlarm);
+
     return (
       <div className="content">
         <Header title={(this.state.data) ? this.state.data.name : ""} />
@@ -229,27 +296,28 @@ class GamePage extends React.Component {
         {/* BODY */}
         {this.state.data !== null && <div className="content-body">
           <div className="scenario-container">
-            <div className="scenario-box-tag-container">
+            <div className={`scenario-box-tag-container ${scenarioBoxAnimate} ${scenarioBoxAnimateDown}`}>
               <div className="scenario-tag">SCENARIO</div>
               <div className="scenario-box">
                 <div className="scenario-border"></div>
-                <div className="scenario-text">{this.state.data.context}?</div>
+                <div className="scenario-text">{this.state.data.context}</div>
               </div>
             </div>
           </div>
           {!this.state.gameStarted && <div className="begin-div-container">
-            <div className="button" onClick={() => this.handleBegin()}>BEGIN</div>
+            <div className="button begin" onClick={() => this.handleBegin()}>BEGIN</div>
           </div>}
           {this.state.gameStarted && <div className="container">
             <div className="question-container">
               <div className="question-box">
-                <div className="question-inner">
-                  <div className="question-text">{this.state.currentQuestion}?</div>
+                <div className={`question-inner ${questionInnerBoxAnimate}`}>
+                  <div className={`question-text ${questionTextAnimate}`}>{this.state.currentQuestion}?</div>
                 </div>
+                <div className="question-index">{this.state.questionNumber > 0 ? this.state.questionNumber : '?' }</div>
               </div>
             </div>
             <div className="button-container">
-              <button id='startButton' className={`button start ${buttonDisabled}`} disabled={this.state.buttonDisabled} onClick={this.handleStart}>{this.state.startText}</button>
+              <button id='startButton' className="button start" onClick={this.handleStart}>{this.state.buttonText}</button>
               <button id='restartButton' className="button" onClick={() => this.handleRestart()}>RESTART</button>
             </div>
           </div>}
