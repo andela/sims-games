@@ -224,7 +224,7 @@ class GamePage extends React.Component {
       // The button doesn't have `NEXT` on it. It has a `START` on it.
       } else {
         // The timer count.
-        let counter = 10;
+        let counter = 60;
 
         // Set the button text to the current timer count.
         this.setState({

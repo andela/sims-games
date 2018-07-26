@@ -80,6 +80,10 @@ body,
   justify-content: center;
   align-items: center;
   padding: 20px;
+
+  &.landing-page {
+    padding-bottom: 100px;
+  }
 }
 
 .gameCard {
@@ -102,6 +106,10 @@ body,
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+  }
+
+  img {
+    width: 70px;
   }
 }
 
@@ -181,7 +189,7 @@ body,
   .button {
     outline: none;
     text-decoration: none;
-    margin-top: 50px;
+    margin-top: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -227,7 +235,6 @@ body,
       width: 80%;
 
       .scenario-tag {
-        display: flex;
         justify-content: center;
         background-color: #353535;
         width: 150px;
