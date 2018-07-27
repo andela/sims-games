@@ -2,15 +2,15 @@
     "name": "Chief Technical Officer",
     "context": "During your first 3 months working with the medium.com dev team you participate in many Sprint Planning and Demo calls with your CTO and get an opportunity to give updates and seek clarity.",
     "tasks": [
-        "Seek clarity on what you are expected to deliver for the MVP. GO FOR IT!",
-        "Seek clarity on why the feature delivery timelines are so short and yet the product launch is so far away. GO FOR IT!",
-        "Seek clarity on company business model and your feeling that it doesn't really makes sense. GO FOR IT!",
-        "Give updates on why the other local Andelan team mates aren't delivering on time. GO FOR IT!",
-        "Give updates on why the other local Andelan team mates arent delivering to expected quality standards. GO FOR IT!",
-        "Give updates on progress towards MVP and why you think you will hit the target head on. GO FOR IT!",
-        "Seek clarity on decision to reduce the dev team and yet based on impending product launch you feel more team members are needed. GO FOR IT!",
-        "Seek clarity on how shifting the technologies will improve the product and yet it is already meeting the required needs. GO FOR IT!",
-        "Give updates on your progress learning a new language and why you have confidence that you can build the product on time. GO FOR IT!",
-        "Give updates on how you will circumnavigate the electricity and internet issues to deliver on time. GO FOR IT!"
+        { "number": "1", "text": "Seek clarity on what you are expected to deliver for the MVP. GO FOR IT!" },
+        { "number": "2", "text": "Seek clarity on why the feature delivery timelines are so short and yet the product launch is so far away. GO FOR IT!" },
+        { "number": "3", "text": "Seek clarity on company business model and your feeling that it doesn't really makes sense. GO FOR IT!" },
+        { "number": "4", "text": "Give updates on why the other local Andelan team mates aren't delivering on time. GO FOR IT!" },
+        { "number": "5", "text": "Give updates on why the other local Andelan team mates arent delivering to expected quality standards. GO FOR IT!" },
+        { "number": "6", "text": "Give updates on progress towards MVP and why you think you will hit the target head on. GO FOR IT!" },
+        { "number": "7", "text": "Seek clarity on decision to reduce the dev team and yet based on impending product launch you feel more team members are needed. GO FOR IT!" },
+        { "number": "8", "text": "Seek clarity on how shifting the technologies will improve the product and yet it is already meeting the required needs. GO FOR IT!" },
+        { "number": "9", "text": "Give updates on your progress learning a new language and why you have confidence that you can build the product on time. GO FOR IT!" },
+        { "number": "10", "text": "Give updates on how you will circumnavigate the electricity and internet issues to deliver on time. GO FOR IT!" }
     ]
 }

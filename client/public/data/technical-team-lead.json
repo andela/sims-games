@@ -2,15 +2,15 @@
     "name": "Technical Team Lead",
     "context": "During your first 3 months working with the medium.com dev team your TTL asks you to contribute to critical team/product decisions and solve problems as they arise.",
     "tasks": [
-        "Which language to use. GO FOR IT!",
-        "Whether to write tests under pressure of tight deadlines. GO FOR IT!",
-        "Focus on frontend or backend. GO FOR IT!",
-        "Refactor under pressure of tight delivery schedule. GO FOR IT!",
-        "Mobile or desktop first. GO FOR IT!",
-        "Framework vs Micro-Framework/Library vs Vanilla implementation. GO FOR IT!",
-        "UI/UX. GO FOR IT!",
-        "Team workflow. GO FOR IT!",
-        "Best time for standups, sprint planning and demos. GO FOR IT!",
-        "How to implement a feature. GO FOR IT!"
+        { "number": "1", "text": "Which language to use. GO FOR IT!" },
+        { "number": "2", "text": "Whether to write tests under pressure of tight deadlines. GO FOR IT!" },
+        { "number": "3", "text": "Focus on frontend or backend. GO FOR IT!" },
+        { "number": "4", "text": "Refactor under pressure of tight delivery schedule. GO FOR IT!" },
+        { "number": "5", "text": "Mobile or desktop first. GO FOR IT!" },
+        { "number": "6", "text": "Framework vs Micro-Framework/Library vs Vanilla implementation. GO FOR IT!" },
+        { "number": "7", "text": "UI/UX. GO FOR IT!" },
+        { "number": "8", "text": "Team workflow. GO FOR IT!" },
+        { "number": "9", "text": "Best time for standups, sprint planning and demos. GO FOR IT!" },
+        { "number": "10", "text": "How to implement a feature. GO FOR IT!" }
     ]
 }

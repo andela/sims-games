@@ -34,7 +34,7 @@ class GamePage extends React.Component {
       id,
       shuffleArray: [],
       data: null,
-      currentQuestion: '',
+      currentQuestion: { number: '', text: '' },
       buttonText: "START",
       buttonIsNext: false,
       timerCounting: false,
@@ -96,11 +96,10 @@ class GamePage extends React.Component {
   handleRestart = () => {
     this.setState({
       gameStarted: false,
-      currentQuestion: '',
+      currentQuestion: { number: '', text: '' },
       buttonText: "START",
       buttonIsNext: false,
       timerCounting: false,
-      soundAlarm: false,
       restartAnimate: true,
       questionNumber: 0,
     }, () => {
@@ -113,82 +112,80 @@ class GamePage extends React.Component {
 
   // Gets called when "START" button is clicked.
   handleStart = (e) => {
-    console.log('Baam!!!!')
+    if (this.state.timerCounting) {
+      this.setState({
+        buttonText: "START",
+        buttonIsNext: false,
+        timerCounting: false,
+        soundAlarm: false,
+      });
+      return;
+    };
 
-      if (this.state.timerCounting) {
-        this.setState({
-          buttonText: "START",
-          buttonIsNext: false,
-          timerCounting: false,
-          soundAlarm: false,
-        });
-        return;
-      };
+    // After `timerCounting` has been set.
+    // Check if the button has `NEXT` on it.
+    if (this.state.buttonIsNext) {
+      // Choose a new question.
+      this.randomQuestion();
+      this.setState({
+        buttonText: "START",
+        buttonIsNext: false,
+        timerCounting: false,
+        soundAlarm: false,
+      });
 
-      // After `timerCounting` has been set.
-      // Check if the button has `NEXT` on it.
-      if (this.state.buttonIsNext) {
-        // Choose a new question.
-        this.randomQuestion();
-        this.setState({
-          buttonText: "START",
-          buttonIsNext: false,
-          timerCounting: false,
-          soundAlarm: false,
-        });
+    // The button doesn't have `NEXT` on it.
+    // However, check if the array has been exhausted, i.e. `gameCompleted`.
+    } else if (this.state.gameCompleted) {
+      // Redirect to landing page.
+      this.props.history.push('/');
 
-      // The button doesn't have `NEXT` on it.
-      // However, check if the array has been exhausted, i.e. `gameCompleted`.
-      } else if (this.state.gameCompleted) {
-        // Redirect to landing page.
-        this.props.history.push('/');
+    // The button doesn't have `NEXT` on it. It has a `START` on it.
+    } else {
+      // The timer count.
+      let counter = 60;
 
-      // The button doesn't have `NEXT` on it. It has a `START` on it.
-      } else {
-        // The timer count.
-        let counter = 60;
-
-        // Set the button text to the current timer count.
-        this.setState({
-          buttonText: counter,
-          questionNumber: this.state.questionNumber + 1,
-          nextAnimate: true,
-          timerCounting: true,
-        }, () => {
-          // Set animation state to false after 2 sec.
-          setTimeout(() => {
-            this.setState({ nextAnimate: false });
-          }, 1000);
-        });
-
-        // The timer calls the callback every 1 sec.
-        let timer = setInterval(() => {
-          // Decrement counter.
-          counter--;
-          if (counter === 0 || !this.state.gameStarted) {
-            if (this.state.gameStarted) {
-              const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
-              this.setState({
-                buttonText: text,
-                buttonIsNext: this.state.shuffleArray.length > 0,
-                gameCompleted: this.state.shuffleArray.length === 0,
-                timerCounting: false,
-                soundAlarm: true
-              });
-            }
-            // Stop the counter.
-            clearInterval(timer);
-          } else if (this.state.timerCounting) {
-            this.setState({
-              buttonText: counter,
-              soundAlarm: false
-            });
-          } else {
-            // Stop the counter.
-            clearInterval(timer);
-          }
+      // Set the button text to the current timer count.
+      this.setState({
+        buttonText: counter,
+        questionNumber: this.state.questionNumber + 1,
+        nextAnimate: true,
+        timerCounting: true,
+      }, () => {
+        // Set animation state to false after 2 sec.
+        setTimeout(() => {
+          this.setState({ nextAnimate: false });
         }, 1000);
-      }
+      });
+
+      // The timer calls the callback every 1 sec.
+      let timer = setInterval(() => {
+        // Decrement counter.
+        counter--;
+        if (counter === 0 || !this.state.gameStarted) {
+          if (this.state.gameStarted) {
+            const text = this.state.shuffleArray.length > 0 ? "NEXT" : "DONE";
+            this.setState({
+              buttonText: text,
+              buttonIsNext: this.state.shuffleArray.length > 0,
+              gameCompleted: this.state.shuffleArray.length === 0,
+              timerCounting: false,
+              soundAlarm: true
+            });
+          }
+          // Stop the counter.
+          clearInterval(timer);
+        } else if (this.state.timerCounting) {
+          this.setState({
+            buttonText: counter,
+            soundAlarm: false
+          });
+        } else {
+          // Stop the counter.
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
   }
 
   // Sounds the alarm.
@@ -199,6 +196,10 @@ class GamePage extends React.Component {
       alarm.pause();
       alarm.currentTime = 0;
     }
+  }
+
+  handleBody = (e) => {
+    this.setState({ soundAlarm: false });
   }
 
   render() {
@@ -216,7 +217,7 @@ class GamePage extends React.Component {
         <Header title={(this.state.data) ? this.state.data.name : ""} />
 
         {/* BODY */}
-        {this.state.data !== null && <div className="content-body">
+        {this.state.data !== null && <div className="content-body" onClick={this.handleBody}>
           <div className="scenario-container">
             <div className={`scenario-box-tag-container ${scenarioBoxAnimate} ${scenarioBoxAnimateDown}`}>
               <div className="scenario-tag">SCENARIO</div>
@@ -233,13 +234,13 @@ class GamePage extends React.Component {
             <div className="question-container">
               <div className="question-box">
                 <div className={`question-inner ${questionInnerBoxAnimate}`}>
-                  <div className={`question-text ${questionTextAnimate}`}>{this.state.currentQuestion}?</div>
+                  <div className={`question-text ${questionTextAnimate}`}>{this.state.currentQuestion.text}?</div>
                 </div>
-                <div className="question-index">{this.state.questionNumber > 0 ? this.state.questionNumber : '?' }</div>
+                <div className="question-index">{this.state.currentQuestion.number > 0 ? this.state.currentQuestion.number : '?' }</div>
               </div>
             </div>
             <div className="button-container">
-              <button id='startButton' className="button start" onClick={this.handleStart}>{this.state.buttonText}</button>
+              { !this.state.gameCompleted && <button id='startButton' className="button start" onClick={this.handleStart}>{this.state.buttonText}</button> }
               <button id='restartButton' className="button" onClick={() => this.handleRestart()}>RESTART</button>
             </div>
           </div>}
