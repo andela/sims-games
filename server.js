@@ -33,3 +33,13 @@ app.get('*', function (req, res) {
 });
 
 app.listen(port);
+
+// little hack to prevent app from sleeping on heroku
+// https://quickleft.com/blog/6-easy-ways-to-prevent-your-heroku-node-app-from-sleeping/
+if (env === 'production') {
+  const https = require("https");
+  setInterval(function() {
+    https.get("https://sims-games.herokuapp.com");
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>interval fired!!!");
+  }, 300000); // every 5 minutes
+}
