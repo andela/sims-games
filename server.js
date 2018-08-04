@@ -33,3 +33,11 @@ app.get('*', function (req, res) {
 });
 
 app.listen(port);
+
+// little hack to prevent app from sleeping on heroku
+if (env === 'production') {
+  const http = require("http");
+  setInterval(function() {
+      http.get("http://sims-games.herokuapp.com");
+  }, 3000000); // every 50 minutes
+}
