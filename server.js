@@ -39,7 +39,7 @@ app.listen(port);
 if (env === 'production') {
   const http = require("http");
   setInterval(function() {
-      http.get("http://sims-games.herokuapp.com");
+      http.get("https://sims-games.herokuapp.com");
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>interval fired!!!");
   }, 300000); // every 5 minutes
 }
