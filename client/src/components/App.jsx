@@ -6,6 +6,7 @@ import "../styles/index.scss";
 import LandingPage from "./LandingPage";
 import GamePage from "./GamePage";
 
+
 import createBrowserHistory from 'history/createBrowserHistory';
 const history = createBrowserHistory();
 
@@ -14,6 +15,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/play/:id" component={GamePage} />
+        <Route exact path="/play/:id/questions/:qId" component={GamePage} />
       </Switch>
   </Router>
 );
