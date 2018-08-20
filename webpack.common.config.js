@@ -2,7 +2,7 @@ const Dotenv = require('dotenv-webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-
+// window.global = window
 module.exports = {
   entry: './client/index.js',
   output: {
@@ -23,6 +23,10 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     descriptionFiles: ['package.json']
   },
+  module: {
+    noParse: ['ws']
+  },
+  externals: ['ws'],
   module: {
     rules: [
       {

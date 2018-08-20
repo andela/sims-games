@@ -424,19 +424,23 @@ body,
   &.move-up {
     animation-name: move-up;
     animation-duration: 1s;
+    animation-iteration-count: 1;
   }
 
   &.move-down {
     animation-name: move-down;
     animation-duration: 1s;
+    animation-iteration-count: 1;
   }
 
   &.scroll-open {
     animation: scroll-open 3s;
+    animation-iteration-count: 1;
   }
 
   &.scroll-open-text {
     animation: scroll-open-text 3s;
+    animation-iteration-count: 1;
   }
 }
 
