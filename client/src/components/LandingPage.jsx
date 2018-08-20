@@ -13,6 +13,12 @@ class LandingPage extends Component {
     this.onCardClick = this.onCardClick.bind(this);
   }
 
+  componentDidMount(){
+    if(localStorage.getItem('state')){
+      socket.emit('conected', JSON.parse(localStorage.getItem('state')));
+    }
+  }
+
   onCardClick(id) {
     this.props.history.push("/play/" + id);
   }

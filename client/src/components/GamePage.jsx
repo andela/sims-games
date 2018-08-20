@@ -100,6 +100,10 @@ class GamePage extends React.Component {
     this.timer = null;
   }
 
+  componentWillMount(){
+    socket.emit('conected', JSON.parse(localStorage.getItem('state')));
+  }
+
   componentDidMount() {
 
     getJSONData(this.state.id, (json) => {
@@ -129,21 +133,21 @@ class GamePage extends React.Component {
 
     }
     socket.on('counter', ({ counts }) => {
-        if(counts > 0){
-          this.setState({
-            timerCounting: true,
-            currentCount: counts,
-            gamePaused: false,
-            gameCompleted: false
-          })
-        } else {
-          // this.soundAlarm()
-          if(this.state.isAdmin) {
-            this.changeGameState();
-          }else{
-            this.setState({currentCount: 0, timerCounting: false})
-          }
+      if(counts > 0){
+        this.setState({
+          timerCounting: true,
+          currentCount: counts,
+          gamePaused: false,
+          gameCompleted: false
+        })
+      } else {
+        this.soundAlarm()
+        if(this.state.isAdmin) {
+          this.changeGameState();
+        }else{
+          this.setState({currentCount: 0, timerCounting: false})
         }
+      }
 
     });
 
@@ -158,7 +162,6 @@ class GamePage extends React.Component {
 
     socket.on("setQuestion", (data) => {
       const { gameQuestion, questions } = data;
-
       this.setState({
         currentQuestion: gameQuestion,
         data: questions
@@ -189,11 +192,12 @@ class GamePage extends React.Component {
     });
 
     window.onbeforeunload = () => {
-      socket.emit('quit', {
+      localStorage.setItem('state', JSON.stringify({
+        socketId: socket.id,
         roomId: this.state.roomId,
         isAdmin: this.state.isAdmin,
         currentTimerValue: this.state.currentCount
-      })
+      }));
     }
   }
 
@@ -318,7 +322,7 @@ class GamePage extends React.Component {
   }
 
   startTimer = (isRestart = false, timerValue) => {
-    let counter = isRestart ? timerValue : 10
+    let counter = isRestart ? timerValue : 60
     this.timer = this.createTimer(counter);
   }
 
