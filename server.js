@@ -38,6 +38,13 @@ app.get('*', function (req, res) {
 
 const server = app.listen(port);
 
+if (env === 'production') {
+  const https = require("https");
+  setInterval(function() {
+    https.get("https://sims-games.herokuapp.com");
+  }, 300000);
+}
+
 const io = require('socket.io')(server);
 
 let roomUsers = {};

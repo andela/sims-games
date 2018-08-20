@@ -105,6 +105,7 @@ class GamePage extends React.Component {
   }
 
   componentDidMount() {
+    socket.emit('conected', JSON.parse(localStorage.getItem('state')));
 
     getJSONData(this.state.id, (json) => {
       this.setState({ data: json });
@@ -132,6 +133,7 @@ class GamePage extends React.Component {
     });
 
     }
+
     socket.on('counter', ({ counts }) => {
       if(counts > 0){
         this.setState({
