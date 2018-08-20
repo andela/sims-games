@@ -38,11 +38,36 @@ app.get('*', function (req, res) {
 
 const server = app.listen(port);
 
+if (env === 'production') {
+  const https = require("https");
+  setInterval(function() {
+    https.get("https://sims-games.herokuapp.com");
+  }, 300000);
+}
+
 const io = require('socket.io')(server);
 
 let roomUsers = {};
 io.on('connection', (socket) => {
   let timerValue = null;
+
+  socket.on('conected', (data) => {
+    let newAdmin = '';
+    if (data) {
+      const { roomId, isAdmin, currentTimerValue, socketId } = data;
+      io['timerValue'] = currentTimerValue;
+      if(roomUsers[roomId]  && socketId){
+        roomUsers[roomId].splice(roomUsers[roomId].indexOf(socketId), 1);
+        isRoomEmpty = roomUsers[roomId].length <= 0;
+        if(isAdmin && !isRoomEmpty){
+          newAdmin = roomUsers[roomId][0];
+          io.to(newAdmin).emit('newAdmin', { timerValue: io['timerValue'] }); 
+          io[newAdmin] = {roomId, admin: true}; 
+        }
+      }
+    }
+  })
+
   socket.on('start', ( data ) => {
     const { roomId, questionNum, newGame, questions } = data;
 
@@ -103,18 +128,5 @@ io.on('connection', (socket) => {
     io[roomId] = { questionNum, questions, currQuestion };
   });
 
-  socket.on('quit', (data) => {
-    let newAdmin = '';
-    const { roomId, isAdmin, currentTimerValue } = data;
-    io['timerValue'] = currentTimerValue
-    if(roomUsers[roomId]){
-      roomUsers[roomId].splice(roomUsers[roomId].indexOf(socket.id), 1);
-      isRoomEmpty = roomUsers[roomId].length <= 0;
-      if(isAdmin && !isRoomEmpty){
-        newAdmin = roomUsers[roomId][0];
-        io.to(newAdmin).emit('newAdmin', { timerValue: io['timerValue'] }); 
-        io[newAdmin] = {roomId, admin: true}; 
-      }
-    }
-  });
+
 });
