@@ -100,10 +100,6 @@ class GamePage extends React.Component {
     this.timer = null;
   }
 
-  componentWillMount(){
-    socket.emit('conected', JSON.parse(localStorage.getItem('state')));
-  }
-
   componentDidMount() {
     socket.emit('conected', JSON.parse(localStorage.getItem('state')));
 
