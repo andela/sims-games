@@ -146,7 +146,11 @@ class GamePage extends React.Component {
     socket.emit('conected', JSON.parse(localStorage.getItem('state')));
 
     getJSONData(this.state.id, (json) => {
-      this.setState({ data: json });
+      this.setState({ data: json }, () => {
+        if(!this.props.location.search){
+          this.handleLoad();
+        }
+      });
     });
     // Gets the json data from data file
     const { search } = this.props.location;
@@ -181,14 +185,13 @@ class GamePage extends React.Component {
           gameCompleted: false
         })
       } else {
-        this.soundAlarm()
         if(this.state.isAdmin) {
+          this.soundAlarm();
           this.changeGameState();
         }else{
           this.setState({currentCount: 0, timerCounting: false})
         }
       }
-
     });
 
     socket.on("getNewQuestion", (data) => {
@@ -247,8 +250,8 @@ class GamePage extends React.Component {
     }
   }
 
-  // Gets called when "BEGIN" button is clicked.
-  handleBegin = () => {
+  //
+  handleLoad(){
     let roomId = '';
     const { search } = this.props.location;
     const questionNum = Math.floor((Math.random() * this.state.data.tasks.length));
@@ -260,7 +263,10 @@ class GamePage extends React.Component {
     }
     socket.emit('start', { roomId, questionNum, 
       questions: this.state.data, newGame: true })
+  }
 
+  // Gets called when "BEGIN" button is clicked.
+  handleBegin = () => {
     // Setting necessary states for when begin button is clicked
     this.setState({
       gameStarted: true,
