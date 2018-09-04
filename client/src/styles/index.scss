@@ -172,7 +172,7 @@ body,
 }
 
 .content-body {
-  display: flex;
+  // display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -180,7 +180,7 @@ body,
   color: #e5e5e5;
   font-family: 'Merienda';
   text-align: center;
-  height: 80%;
+  margin-bottom: 70px;
 
   .container {
     width: 100%;
