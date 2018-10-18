@@ -38,14 +38,14 @@ app.get('*', function (req, res) {
 
 const server = app.listen(port);
 
-// little hack to prevent app from sleeping on heroku
-// https://quickleft.com/blog/6-easy-ways-to-prevent-your-heroku-node-app-from-sleeping/
-if (env === 'production') {
-  const https = require("https");
-  setInterval(function() {
-    https.get("https://sims-games.herokuapp.com");
-  }, 300000); // every 5 minutes
-}
+// // little hack to prevent app from sleeping on heroku
+// // https://quickleft.com/blog/6-easy-ways-to-prevent-your-heroku-node-app-from-sleeping/
+// if (env === 'production') {
+//   const https = require("https");
+//   setInterval(function() {
+//     https.get("https://sims-games.herokuapp.com");
+//   }, 300000); // every 5 minutes
+// }
 
 const io = require('socket.io')(server);
 
